@@ -1,0 +1,40 @@
+def english_to_pig_latin(word):
+    vowels = "aeiou"  # Define vowels
+    if word[0] in vowels:  # Check if the first letter is a vowel
+        return word + "ay"  # If so, add "ay" to the end
+    else:
+        for i, letter in enumerate(word):  # Find the position of the first vowel
+            if letter in vowels:
+                return word[i:] + word[:i] + "ay"  # Move consonants to end and add "ay"
+        return word + "ay"  # If no vowels, add "ay" to the end
+
+def pig_latin_to_english(word):
+    if word.endswith("ay"):  # Check if the word ends with "ay"
+        core_word = word[:-2]  # Remove "ay" to get the core part
+        for i in range(len(core_word) - 1, -1, -1):  # Find the last vowel
+            if core_word[i] in "aeiou":
+                return core_word[i:] + core_word[:i]  # Move consonants to the end
+        return core_word  # If no vowels, return the core word itself
+    return word  # If not a valid Pig Latin word, return the word itself
+
+def main():
+    while True:
+        print("\n1. English to Pig Latin")  # Print menu options
+        print("2. Pig Latin to English")
+        print("3. Exit")
+        choice = input("Enter your choice (1/2/3): ")  # Get user choice
+
+        if choice == '1':  # If choice is English to Pig Latin
+            word = input("Enter an English word: ").lower()  # Get the word and convert to lowercase
+            print(f"Pig Latin: {english_to_pig_latin(word)}")  # Convert and print the result
+        elif choice == '2':  # If choice is Pig Latin to English
+            word = input("Enter a Pig Latin word: ").lower()  # Get the word and convert to lowercase
+            print(f"English: {pig_latin_to_english(word)}")  # Convert and print the result
+        elif choice == '3':  # If choice is to exit
+            print("Exiting...")  # Print exit message
+            break  # Exit the loop
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")  # Handle invalid choices
+
+if __name__ == "__main__":  # Ensure the script runs only if executed directly
+    main()  # Call the main function
