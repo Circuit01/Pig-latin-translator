@@ -1,0 +1,47 @@
+def english_to_pig_latin(word):
+    # Define vowels
+    vowels = "aeiou"
+    if word[0] in vowels:
+        return word + "ay"
+    else:
+        # Find the first vowel in the word
+        for i, letter in enumerate(word):
+            if letter in vowels:
+                # Move the consonant cluster to the end and add "ay"
+                return word[i:] + word[:i] + "ay"
+        # In case there are no vowels, just return the word with "ay" (unusual case)
+        return word + "ay"
+
+def pig_latin_to_english(word):
+    if word.endswith("ay"):
+        core_word = word[:-2]
+        # Find the last vowel in the word
+        for i in range(len(core_word) - 1, -1, -1):
+            if core_word[i] in "aeiou":
+                # Move the leading consonants to the end
+                return core_word[i:] + core_word[:i]
+        # In case no vowels are found (edge case), return the word itself
+        return core_word
+    return word
+
+def main():
+    while True:
+        print("\n1. English to Pig Latin")
+        print("2. Pig Latin to English")
+        print("3. Exit")
+        choice = input("Enter your choice (1/2/3): ")
+
+        if choice == '1':
+            word = input("Enter an English word: ").lower()
+            print(f"Pig Latin: {english_to_pig_latin(word)}")
+        elif choice == '2':
+            word = input("Enter a Pig Latin word: ").lower()
+            print(f"English: {pig_latin_to_english(word)}")
+        elif choice == '3':
+            print("Exiting...")
+            break
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
+
+if __name__ == "__main__":
+    main()
