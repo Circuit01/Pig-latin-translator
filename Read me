@@ -1,0 +1,75 @@
+Here's a README for the Pig Latin translator:
+
+---
+
+# Pig Latin Translator
+
+## Overview
+This Python script provides a simple translator between English and Pig Latin. Pig Latin is a playful language game where words in English are altered according to specific rules. The script includes two main functions: one for converting English words to Pig Latin and another for converting Pig Latin words back to English.
+
+## How It Works
+
+### Functions
+
+1. **`english_to_pig_latin(word)`**
+   - **Purpose**: Converts an English word into Pig Latin.
+   - **Rules**:
+     - If the word starts with a vowel (a, e, i, o, u), simply add "ay" to the end of the word.
+     - If the word starts with a consonant, move the initial consonant cluster to the end of the word and add "ay".
+   - **Example**:
+     - Input: `hello`
+     - Output: `ellohay`
+
+2. **`pig_latin_to_english(word)`**
+   - **Purpose**: Converts a Pig Latin word back into English.
+   - **Rules**:
+     - Remove the "ay" suffix from the end of the word.
+     - Move the consonant cluster (which was moved to the end in the Pig Latin conversion) back to the beginning of the word.
+   - **Example**:
+     - Input: `ellohay`
+     - Output: `hello`
+
+### How to Use
+
+1. **Run the Script**: Execute the script in a Python environment. It will display a menu with options to convert between English and Pig Latin or to exit the program.
+
+2. **Menu Options**:
+   - **1. English to Pig Latin**: Enter an English word to get its Pig Latin translation.
+   - **2. Pig Latin to English**: Enter a Pig Latin word to get its English translation.
+   - **3. Exit**: Exit the program.
+
+3. **Input**:
+   - Enter the word you want to translate when prompted. The input is automatically converted to lowercase to ensure consistent processing.
+
+4. **Output**:
+   - The script will display the translated word based on the chosen conversion.
+
+## Example Usage
+
+```plaintext
+1. English to Pig Latin
+2. Pig Latin to English
+3. Exit
+Enter your choice (1/2/3): 1
+Enter an English word: apple
+Pig Latin: appleay
+
+1. English to Pig Latin
+2. Pig Latin to English
+3. Exit
+Enter your choice (1/2/3): 2
+Enter a Pig Latin word: appleay
+English: apple
+```
+
+## Notes
+- The script assumes that input words are in lowercase and do not contain punctuation or special characters.
+- If a word does not follow standard Pig Latin rules or if the rules are not strictly applied, the script may not produce expected results.
+
+## Running the Script
+To run the script, ensure you have Python installed. Save the code to a file named `pig_latin_translator.py`, and execute it using the command:
+
+```sh
+python pig_latin_translator.py
+```
+
